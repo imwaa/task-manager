@@ -1,0 +1,37 @@
+   {{!-- {{#if (eq role 'staff-member')}} --}}
+<h1 class="text-white mb-5">Clients</h1>
+<div class="row">
+    {{#each Clients}}
+    <div class="col-md-4">
+        <div class="card border-primary">
+            <div class="card-body text-white bg-primary ">
+                <h3 class="card-title">
+                    {{name}}
+                </h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-envelope mr-3"></i>
+                    {{email}}
+                </li>
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-user mr-3"></i>
+                    {{role}}
+                </li>
+            </ul>
+            <div class="card-footer text-muted">
+                {{!-- {{createdAt}} --}}
+                {{createdAt}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+    {{!-- {{else}} --}}
+    {{!-- <div class="alert alert-dismissible border-primary mb-3 alert-danger">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <h4 class="alert-heading">You are not Authorised!</h4>
+        <p class="mb-0">Only Staff members have acces</p>
+    </div> --}}
+
+    {{!-- {{/if}} --}}
+</div>

@@ -1,6 +1,9 @@
+<h1 class="text-white mb-5">Your Notes</h1>
+
 <div class="row">
+    {{#if notes}}
     {{#each notes}}
-    <div class="col-md-4">
+    <div class="col-md-4 mb-5">
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title d-flex justify-content-between align-items-center">
@@ -10,13 +13,16 @@
                 <p>{{description}}</p>
                 <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
                     <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-secondary btn-block ">
+                    <button type="submit" class="btn btn-primary btn-block ">
                         Delete
                     </button>
                 </form>
             </div>
         </div>
     </div>
+        {{/each}}
+    {{else}}
+    <h3 class="text-white mb-5">You have not added notes yet</h3>
+    {{/if}}
 
-    {{/each}}
 </div>

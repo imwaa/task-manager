@@ -1,8 +1,25 @@
 body{
-    background-color:rgb(0, 104, 90) ;
+    /* background-color:#56CC9D ; */
+    background-color: rgb(54, 54, 54);
 }
 
-footer{
+
+.fixed-bottom{
+    height: 50px;
+    background-color: white;
     text-align: center;
-    color: white;
+    color: black;
+}
+
+.footer{
+    margin-top: 15px;
+    font-size: 15px;
+}
+
+.dropdown,.dropdown-item{
+    font-size: 20px;
+}
+
+.card-text {
+    font-size: 20px;
 }

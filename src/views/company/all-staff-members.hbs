@@ -1,0 +1,29 @@
+   <h1 class="text-white mb-5" >Staff Members</h1>
+<div class="row">
+    {{#each StaffMember}}
+ 
+    <div class="col-md-4">
+        <div class="card border-primary">
+            <div class="card-body text-white bg-primary ">
+                <h3 class="card-title">
+                    {{name}}
+                </h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-envelope mr-3"></i>
+                    {{email}}
+                </li>
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-user mr-3"></i>
+                    {{role}}
+                </li>
+            </ul>
+            <div class="card-footer text-muted">
+            {{createdAt}}
+            </div>
+        </div>
+    </div>
+
+    {{/each}}
+</div>

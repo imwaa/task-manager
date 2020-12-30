@@ -1,6 +1,7 @@
 const {
     Router
-} = require('express')
+} = require('express');
+const passport = require('passport');
 
 const router = Router();
 
@@ -9,16 +10,20 @@ const {
     renderSignInForm,
     signup,
     signin,
-    logout
+    logout,
+    renderProfile
 } = require("../controllers/users.controller")
 
-router.get('/users/signup', renderSignUpForm)
-
-router.post('/users/signup', signup)
 
 router.get('/users/signin', renderSignInForm)
 
-router.post('/users/signin', signin)
+router.get('/users/profile', renderProfile)
+
+router.post('/users/signin', passport.authenticate('local-signin',{
+    successRedirect : '/notes',
+    failureRedirect: '/users/signin',
+    passReqToCallBack: true
+}))
 
 router.get('/users/logout', logout)
 

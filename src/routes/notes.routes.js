@@ -14,6 +14,7 @@ const {
 
 const{isAuthenticated} = require('../helpers/auth')
 
+
 //Create New NOTE
 router.get('/notes/add',isAuthenticated, renderNoteForm)
 

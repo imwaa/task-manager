@@ -1,10 +1,8 @@
 const indexCtrl = {}
 
 indexCtrl.renderIndex = (req,res)=>{
-    res.render("index")
+    res.render("users/signin")
 }
-indexCtrl.renderAbout = (req,res)=>{
-    res.render("About")
-}
+
 
 module.exports = indexCtrl

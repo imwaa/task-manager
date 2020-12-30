@@ -1,28 +1,123 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light ">
-    <div class="container">
-        <a class="navbar-brand" href="/">Notes App</a>
+    <div class="container d-flex">
+        <a class="navbar-brand mr-2">Welcome back, {{user.name}}</a>
+        <span class="badge badge-success">{{user.role}}</span>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                </li>
+
+
+        <div class="collapse navbar-collapse " id="navbarNav">
+            <ul class="navbar-nav ml-auto">
                 {{#if user}}
+
+                {{!-- NOTES SECTION --}}
+
+
                 <li class="nav-item dropdown active">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Notes
+                        <i class="fas fa-sticky-note"></i> Notes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/notes">All Notes</a>
-                        <a class="dropdown-item" href="/notes/add">Add a Note</a>
+
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/users/logout">Log-out</a>
+                        <a class="dropdown-item" href="/notes/add"><i class="fas fa-plus-square"></i> Add a Note</a>
+
+
                     </div>
                 </li>
+
+
+                {{!-- TASK SECTION --}}
+
+                {{#if (or
+                            (eq user.role 'staff-member')
+                            (eq user.role 'employee')
+                            )}}
+                <li class="nav-item dropdown active mr-5">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-tasks"></i></i> Tasks
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {{#if 
+                            (eq user.role 'employee')
+                            }} <a class="dropdown-item" href="/tasks/my-tasks"><i class="fas fa-list"></i> Show my tasks</a>
+                        {{/if}}
+
+                        {{#if (eq user.role 'staff-member')}}
+                        <a class="dropdown-item" href="/tasks/all-tasks"><i class="fas fa-list"></i> Show all tasks</a>
+                        {{/if}}
+
+
+                        {{#if (eq user.role 'staff-member')}}
+                        <div class="dropdown-divider">
+                        </div><a class="dropdown-item" href="/tasks/add-task"><i class="fas fa-plus-square"></i> Assign a task</a>
+                        {{/if}}
+
+                    </div>
+                </li>
+                {{/if}}
+
+
+                {{!-- USER SECTION --}}
+
+                {{#if (or
+                            (eq user.role 'staff-member')
+                            (eq user.role 'employee')
+                            )}}
+                <li class="nav-item dropdown active mr-5">
+                    <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-users"></i> Users
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        {{#if (or
+                            (eq user.role 'staff-member')
+                            (eq user.role 'employee')
+                            )}} <a class="dropdown-item" href="/company/employees">Employees</a>
+                        {{/if}}
+
+                        {{#if (or
+                            (eq user.role 'staff-member')
+                            (eq user.role 'employee')
+                            )}} <a class="dropdown-item" href="/company/clients">Clients</a>
+                        {{/if}}
+
+                        {{#if (eq user.role 'staff-member')}}
+                        <a class="dropdown-item" href="/company/staff-member">Staff-Member</a>
+                        {{/if}}
+
+
+                        {{#if (eq user.role 'staff-member')}}
+                        <div class="dropdown-divider">
+                        </div><a class="dropdown-item" href="/company/add-member"><i class="fas fa-plus-square"></i> Add
+                            User</a>
+                        {{/if}}
+
+                    </div>
+                </li>
+                {{/if}}
+
+
+
+
+                <li class="nav-item dropdown active ">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/users/profile">Profile</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/logout"> <i class="fas fa-sign-out-alt"></i> Logout</a>
+
+                    </div>
+                </li>
+
                 {{else}}
             </ul>
             <ul class="navbar-nav ml-auto">

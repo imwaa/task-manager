@@ -1,0 +1,59 @@
+<style>
+    li {
+        font-size: 18px;
+    }
+
+    .card-footer{
+        font-size: 20px;
+        text-align: center;
+    }
+</style>
+
+<h1 class="text-white mb-5">All Tasks</h1>
+<div class="row">
+    {{#each Tasks}}
+    <div class="col-md-4">
+        <div class="card border-primary">
+            <div class="card-body text-white bg-primary ">
+                <h3 class="card-title">
+                    {{title}}
+                </h3>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item d-flex  align-items-center">
+                    {{description}}
+                </li>
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-user-secret mr-3 text-primary"></i>
+                    <span class="badge badge-primary">{{employee}}</span>
+                </li>
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-user-tie mr-3 text-info"></i>
+                    <span class="badge badge-info">{{client}}</span>
+                </li>
+                <li class="list-group-item d-flex  align-items-center">
+                    <i class="fas fa-calendar-check mr-3"></i>
+                    {{taskDate}}
+
+                </li>
+            </ul>
+
+            <div class="card-footer
+            {{#if (eq status 'Not Started')}}
+            text-white bg-danger
+            {{/if}}
+
+            {{#if (eq status 'Started')}}
+            text-white bg-warning
+            {{/if}}
+
+            {{#if (eq status 'Completed')}}
+            text-white bg-success
+            {{/if}}"
+            >
+                Status : {{status}}
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
