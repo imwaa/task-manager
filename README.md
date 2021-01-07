@@ -1,7 +1,6 @@
 # Entreprise Web App
 An Entreprise Web App, made with Node.js (Express, Passport.js, Handlebars) and Mongodb
-<h3> Demo of the Web application on Youtube:</h3>
-<h3>https://www.youtube.com/watch?v=lQCd_2dS2I0</h3>
+<h3> Demo of the Web application on Youtube: https://www.youtube.com/watch?v=lQCd_2dS2I0</h3>
 
 
 <img src="https://media-exp1.licdn.com/dms/image/C4E22AQGvHltnOFQpAg/feedshare-shrink_1280-alternative/0/1605451209647?e=1613001600&v=beta&t=YS0rsVbx_7RezFocSiVixclfD86RXeTdREFpnICNCkM">
