@@ -18,5 +18,7 @@ An Entreprise Web App, made with Node.js (Express, Passport.js, Handlebars) and 
 
 <img src="https://media-exp1.licdn.com/dms/image/C4E22AQG5y2L4ugjaOw/feedshare-shrink_1280-alternative/0/1605451209884?e=1613001600&v=beta&t=HNfHnYkX1WlMAVRNDPcvDG50bGcp7skTvel5_mzCni4">
 
+Made by Walid Salhi Belkacem
+
 
 
